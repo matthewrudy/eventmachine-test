@@ -1,8 +1,16 @@
 require 'sinatra'
 require 'faraday'
 require 'net/http'
+require 'em-http-request'
+require 'em-synchrony'
 
 set :port, '4567'
+
+# configure { set :server, :puma }
+
+get '/is_reactor' do
+  EM.reactor_thread?.inspect
+end
 
 get '/net_http' do
   uri = URI.parse('http://localhost:1337/sleep')
@@ -10,12 +18,6 @@ get '/net_http' do
     req = Net::HTTP::Get.new(uri.request_uri)
     client.request(req).body
   end
-end
-
-get '/em_synchrony' do
-  request = EM::HttpRequest.new('http://localhost:1337/sleep').get
-  response = EM::Synchrony.sync(request)
-  response.response
 end
 
 get '/faraday' do
@@ -27,6 +29,12 @@ get '/faraday' do
 
   response = conn.get '/sleep'
   response.body
+end
+
+get '/em_synchrony' do
+  request = EM::HttpRequest.new('http://localhost:1337/sleep').get
+  response = EM::Synchrony.sync(request)
+  response.response
 end
 
 get '/faraday_em' do

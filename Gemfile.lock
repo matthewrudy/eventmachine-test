@@ -19,6 +19,8 @@ GEM
       multipart-post (>= 1.2, < 3)
     http_parser.rb (0.6.0)
     multipart-post (2.0.0)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
     rack (1.6.1)
     rack-protection (1.5.3)
       rack
@@ -39,5 +41,6 @@ DEPENDENCIES
   em-http-request
   em-synchrony
   faraday
+  puma
   sinatra
   thin

@@ -6,3 +6,5 @@ gem 'thin'
 gem 'faraday'
 gem 'em-synchrony'
 gem 'em-http-request'
+
+gem 'puma'

@@ -22,12 +22,6 @@
     Time taken for tests:   10.165 seconds
     Complete requests:      100
 
-    ab -n 100 -c 10 "http://0.0.0.0:4567/em_synchrony"
+## Todo
 
-    Concurrency Level:      10
-    Time taken for tests:   3.474 seconds
-    Complete requests:      100
-
-    ab -n 100 -c 10 "http://0.0.0.0:4567/faraday_em"
-
-    # breaks everything
+Compare em-synchrony
